@@ -16,16 +16,30 @@ const TIME_EVENT_TYPE_CLOCK_IN = "P10";
 const TIME_EVENT_TYPE_BEGIN_BREAK = "P15";
 const TIME_EVENT_TYPE_END_BREAK = "P25";
 const TIME_EVENT_TYPE_CLOCK_OUT = "P20";
+
+function getRandomizedTime(baseTime) {
+    const [hours, , ] = baseTime.split(":").map(Number);
+    const randomMinutes = Math.floor(Math.random() * 12) * 5; // 0, 5, 10, ..., 55
+    const randomSeconds = Math.floor(Math.random() * 60); // 0–59
+    return `${String(hours).padStart(2, '0')}:${String(randomMinutes).padStart(2, '0')}:${String(randomSeconds).padStart(2, '0')}`;
+}
+
 let userSettings = JSON.parse(localStorage.getItem("userSettings")) || {
-    defaultTimes: {
-        begin: "08:00:00",
-        pauseBegin: "12:00:00",
-        pauseEnd: "12:30:00",
-        end: "17:00:00",
-        autoSubmit: !1
-    },
-    workHoursPerDay: 8
+    defaultTimes: {
+        begin: "08:00:00",
+        pauseBegin: "12:00:00",
+        pauseEnd: "12:30:00",
+        end: "17:00:00",
+        autoSubmit: !1
+    },
+    workHoursPerDay: 8
 };
+
+// Randomize times
+for (let key of ["begin", "pauseBegin", "pauseEnd", "end"]) {
+    userSettings.defaultTimes[key] = getRandomizedTime(userSettings.defaultTimes[key]);
+}
+
 let messagesExtracted = !1;
 let buttonsAdded = !1;
 let buttonContainer, configContainer, currentLanguage = "de";
