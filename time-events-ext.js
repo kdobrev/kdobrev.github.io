@@ -26,10 +26,10 @@ function getRandomizedTime(baseTime) {
 
 let userSettings = JSON.parse(localStorage.getItem("userSettings")) || {
     defaultTimes: {
-        begin: "08:00:00",
+        begin: "09:00:00",
         pauseBegin: "12:00:00",
-        pauseEnd: "12:30:00",
-        end: "17:00:00",
+        pauseEnd: "13:00:00",
+        end: "18:00:00",
         autoSubmit: !1
     },
     workHoursPerDay: 8
