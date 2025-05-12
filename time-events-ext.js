@@ -19,7 +19,7 @@ const TIME_EVENT_TYPE_CLOCK_OUT = "P20";
 
 function getRandomizedTime(baseTime) {
     const [hours, , ] = baseTime.split(":").map(Number);
-    const randomMinutes = Math.floor(Math.random() * 12) * 5; // 0, 5, 10, ..., 55
+    const randomMinutes = Math.floor(Math.random() * 10); // 0, 5, 10, ..., 55
     const randomSeconds = Math.floor(Math.random() * 60); // 0–59
     return `${String(hours).padStart(2, '0')}:${String(randomMinutes).padStart(2, '0')}:${String(randomSeconds).padStart(2, '0')}`;
 }
