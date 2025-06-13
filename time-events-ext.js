@@ -191,6 +191,10 @@ const triggerSaveButton = () => {
     let e = sap.ui.getCore().byId("__xmlview0--save");
     e || (console.warn("Save button not found immediately. Trying to find it using querySelector."), e = document.querySelector(".sapMDialog .sapMBar .sapMDialogBeginButton")), e ? e.firePress ? (e.firePress(), console.log("Save button clicked using firePress.")) : (console.warn("saveButton.firePress is not a function.  Trying click()."), e.click(), console.log("Save button clicked using click().")) : console.error("Save button not found.")
 },
+const triggerOKButton = () => {
+    let e = sap.ui.getCore().byId("__button14");
+    e || (console.warn("OK button not found immediately. Trying to find it using querySelector."), e = document.querySelector("sapMBtnBase sapMBtn sapMBtnInverted sapMBarChild")), e ? e.firePress ? (e.firePress(), console.log("OK button clicked using firePress.")) : (console.warn("okButton.firePress is not a function.  Trying click()."), e.click(), console.log("OK button clicked using click().")) : console.error("OK button not found.")
+},
     style = document.createElement("style"),
     detectLanguage = (style.innerHTML = `
 .sapMIBar.sapMTB .sapMBarChild:last-child:only-child {
