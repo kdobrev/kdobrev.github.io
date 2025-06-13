@@ -294,6 +294,9 @@ setInterval(() => {
     if (languageDetected || detectLanguage(), n) {
         var d = n.getItems().map(e => e.getBindingContext("timeEventList").getObject());
         console.error("DEBUG", "Time events: ", d);
+        for (let key of ["begin", "pauseBegin", "pauseEnd", "end"]) {
+            userSettings.defaultTimes[key] = getRandomizedTime(userSettings.defaultTimes[key]);
+        }
         let e;
         if (0 < d.length) switch (d[d.length - 1].TimeType) {
             case TIME_EVENT_TYPE_CLOCK_IN:
