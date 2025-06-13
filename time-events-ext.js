@@ -183,7 +183,7 @@ const handleButtonClick = t => {
                         bubbles: !0
                     })), o.blur(), o.dispatchEvent(new FocusEvent("blur"))
                 }, 100)
-            }, 100), userSettings.defaultTimes.autoSubmit) && setTimeout(triggerSaveButton, 200)
+            }, 100), userSettings.defaultTimes.autoSubmit) && setTimeout(triggerSaveButton, 200) && setTimeout(triggerOKButton, 2000)
         } else console.warn("Time picker input field not found.");
     else console.warn("Time event type input field not found.")
 };
